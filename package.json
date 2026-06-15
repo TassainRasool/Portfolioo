@@ -1,0 +1,7 @@
+{
+  "name": "stack-of-cards",
+  "private": true,
+  "scripts": {
+    "dev": "npx serve ."
+  }
+}
