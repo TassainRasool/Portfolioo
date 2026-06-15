@@ -42,7 +42,7 @@
   margin: 0; padding: 0; box-sizing: border-box;
 }
 
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; overflow-x: hidden; }
 
 body {
   min-height: 100vh;
@@ -1575,7 +1575,10 @@ body {
   }
 
   .intro-role {
-    font-size: clamp(0.85rem, 2.5vw, 1rem);
+    font-size: clamp(0.72rem, 2.5vw, 0.85rem);
+    word-break: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
   }
 
   .intro-tagline {
@@ -1643,7 +1646,7 @@ body {
   }
 
   #skills .skill-card {
-    padding: 16px 14px;
+    padding: 18px 16px;
     transform: none !important;
   }
 
@@ -1693,6 +1696,7 @@ body {
 
   .project-cat {
     font-size: 0.7rem;
+    white-space: normal;
     overflow-wrap: break-word;
     word-break: break-word;
   }
@@ -1741,6 +1745,8 @@ body {
 
   .resume-tags span {
     word-break: break-word;
+    font-size: 0.7rem;
+    padding: 4px 12px;
   }
 
   /* Connect */
@@ -1760,18 +1766,13 @@ body {
 
   .form-row input,
   .form-row textarea {
-    padding: 14px 16px;
+    padding: 12px 16px;
+    font-size: 0.85rem;
   }
 
-  /* Section nav */
-  .nav-mini-card {
-    width: 32px;
-    height: 44px;
-  }
-
-  .nav-mini-card svg {
-    width: 14px;
-    height: 14px;
+  /* Section nav — compact to prevent overflow */
+  .section-nav {
+    padding: 0 10px;
   }
 
   .section-nav-inner {
@@ -1779,8 +1780,15 @@ body {
     padding: 6px 0;
   }
 
-  .section-nav {
-    padding: 0 10px;
+  .nav-mini-card {
+    width: 32px;
+    height: 44px;
+    flex-shrink: 0;
+  }
+
+  .nav-mini-card svg {
+    width: 14px;
+    height: 14px;
   }
 
   /* Mini card */
@@ -1858,6 +1866,17 @@ body {
     font-size: clamp(1.2rem, 7vw, 1.5rem);
   }
 
+  .intro-role {
+    font-size: clamp(0.65rem, 2.5vw, 0.75rem);
+    word-break: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+
+  .intro-tagline {
+    font-size: 0.8rem;
+  }
+
   /* Skills — single column on very small screens */
   #skills .skill-stack {
     grid-template-columns: 1fr;
@@ -1865,7 +1884,7 @@ body {
   }
 
   #skills .skill-card {
-    padding: 14px 12px;
+    padding: 16px 14px;
   }
 
   #skills .skill-card-header h3 {
@@ -1913,23 +1932,46 @@ body {
     font-size: 1rem;
   }
 
+  .resume-tags span {
+    font-size: 0.65rem;
+    padding: 3px 10px;
+  }
+
   /* Connect */
   .form-row input,
   .form-row textarea {
-    padding: 12px 14px;
+    padding: 12px 16px;
   }
 
+  /* Section nav — ultra compact */
   .section-nav {
     padding: 0 6px;
   }
 
+  .section-nav-inner {
+    gap: 3px;
+  }
+
   .nav-mini-card {
-    width: 28px;
-    height: 38px;
+    width: 26px;
+    height: 36px;
+    flex-shrink: 0;
   }
 
   .nav-mini-card svg {
-    width: 12px;
-    height: 12px;
+    width: 11px;
+    height: 11px;
+  }
+
+  .mini-card {
+    width: 32px;
+    height: 44px;
+    top: 10px;
+    right: 10px;
+  }
+
+  .mini-card svg {
+    width: 14px;
+    height: 14px;
   }
 }
