@@ -1522,7 +1522,7 @@ body {
   }
 
   .screen-body {
-    padding: 32px 8px 48px;
+    padding: 32px 16px 48px;
     gap: 16px;
   }
 
@@ -1623,54 +1623,60 @@ body {
     padding: 18px 16px;
   }
 
-  /* Skills stack */
+  /* Skills — 2-column grid instead of stack/fan */
   #skills .skill-stack {
-    margin-top: 0;
-    margin-bottom: auto;
-    width: 180px;
-    height: 200px;
+    position: static;
+    width: 100%;
+    height: auto;
+    cursor: default;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
   }
 
-  .skill-stack .skill-card {
-    padding: 12px 10px;
+  #skills .skill-card-wrapper {
+    position: static;
+    width: auto;
+    height: auto;
+    cursor: default;
   }
 
-  .skill-stack .skill-card-header {
-    margin-bottom: 4px;
-    gap: 8px;
+  #skills .skill-card {
+    padding: 16px 14px;
+    transform: none !important;
   }
 
-  .skill-stack .skill-card-header h3 {
+  #skills .skill-card-header {
+    margin-bottom: 8px;
+    gap: 10px;
+  }
+
+  #skills .skill-card-header h3 {
+    font-size: 0.85rem;
+  }
+
+  #skills .skill-icon {
+    width: 28px;
+    height: 28px;
+  }
+
+  #skills .skill-icon svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  #skills .skill-tag {
     font-size: 0.7rem;
+    padding: 4px 10px;
   }
 
-  .skill-stack .skill-icon {
-    width: 24px;
-    height: 24px;
+  #skills .skill-stack.fanned .skill-card-wrapper,
+  #skills .skill-stack:not(.fanned):hover .skill-card-wrapper,
+  #skills .skill-stack.fanned .skill-card-wrapper .skill-card,
+  #skills .skill-stack:not(.fanned):hover .skill-card-wrapper .skill-card {
+    transform: none !important;
   }
-
-  .skill-stack .skill-icon svg {
-    width: 12px;
-    height: 12px;
-  }
-
-  .skill-stack .skill-tag {
-    font-size: 0.55rem;
-    padding: 2px 6px;
-  }
-
-  .skill-stack:not(.fanned):hover .skill-card-wrapper:nth-child(1),
-  .skill-stack.fanned .skill-card-wrapper:nth-child(1) { transform: translateX(-90px) translateY(-95px); }
-  .skill-stack:not(.fanned):hover .skill-card-wrapper:nth-child(2),
-  .skill-stack.fanned .skill-card-wrapper:nth-child(2) { transform: translateX(0) translateY(-95px); }
-  .skill-stack:not(.fanned):hover .skill-card-wrapper:nth-child(3),
-  .skill-stack.fanned .skill-card-wrapper:nth-child(3) { transform: translateX(90px) translateY(-95px); }
-  .skill-stack:not(.fanned):hover .skill-card-wrapper:nth-child(4),
-  .skill-stack.fanned .skill-card-wrapper:nth-child(4) { transform: translateX(-90px) translateY(95px); }
-  .skill-stack:not(.fanned):hover .skill-card-wrapper:nth-child(5),
-  .skill-stack.fanned .skill-card-wrapper:nth-child(5) { transform: translateX(0) translateY(95px); }
-  .skill-stack:not(.fanned):hover .skill-card-wrapper:nth-child(6),
-  .skill-stack.fanned .skill-card-wrapper:nth-child(6) { transform: translateX(90px) translateY(95px); }
 
   /* Projects */
   .projects {
@@ -1682,22 +1688,28 @@ body {
   }
 
   .project-info {
-    padding: 14px;
+    padding: 16px;
+  }
+
+  .project-cat {
+    font-size: 0.7rem;
+    overflow-wrap: break-word;
+    word-break: break-word;
   }
 
   .project-info h3 {
-    font-size: 1rem;
+    font-size: 1.05rem;
   }
 
   .project-info p,
   .project-bullets li {
-    font-size: 0.78rem;
+    font-size: 0.82rem;
   }
 
   /* Resume */
   .resume-sidebar {
     flex: 0 0 100%;
-    padding: 20px 16px;
+    padding: 24px 16px;
   }
 
   .resume-main {
@@ -1706,29 +1718,49 @@ body {
   }
 
   .resume-dp {
-    width: 72px;
-    height: 72px;
+    width: 80px;
+    height: 80px;
   }
 
   .resume-name {
-    font-size: 1rem;
+    font-size: 1.1rem;
   }
 
   .resume-card {
     border-radius: var(--radius-md);
   }
 
+  .resume-dl-btn {
+    width: 100%;
+  }
+
+  .resume-tags {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .resume-tags span {
+    word-break: break-word;
+  }
+
   /* Connect */
   .contact-form {
     max-width: 100%;
+    width: 100%;
   }
 
   .contact-form .btn.primary {
     align-self: stretch;
+    width: 100%;
   }
 
   .connect-text {
     font-size: 0.85rem;
+  }
+
+  .form-row input,
+  .form-row textarea {
+    padding: 14px 16px;
   }
 
   /* Section nav */
@@ -1790,11 +1822,11 @@ body {
 
 @media (max-width: 480px) {
   .screen {
-    padding: 0 8px;
+    padding: 0 16px;
   }
 
   .screen-body {
-    padding: 24px 4px 40px;
+    padding: 24px 12px 40px;
   }
 
   .stack {
@@ -1826,18 +1858,66 @@ body {
     font-size: clamp(1.2rem, 7vw, 1.5rem);
   }
 
-  .skill-stack:not(.fanned):hover .skill-card-wrapper:nth-child(1),
-  .skill-stack.fanned .skill-card-wrapper:nth-child(1) { transform: translateX(-75px) translateY(-80px); }
-  .skill-stack:not(.fanned):hover .skill-card-wrapper:nth-child(2),
-  .skill-stack.fanned .skill-card-wrapper:nth-child(2) { transform: translateX(0) translateY(-80px); }
-  .skill-stack:not(.fanned):hover .skill-card-wrapper:nth-child(3),
-  .skill-stack.fanned .skill-card-wrapper:nth-child(3) { transform: translateX(75px) translateY(-80px); }
-  .skill-stack:not(.fanned):hover .skill-card-wrapper:nth-child(4),
-  .skill-stack.fanned .skill-card-wrapper:nth-child(4) { transform: translateX(-75px) translateY(80px); }
-  .skill-stack:not(.fanned):hover .skill-card-wrapper:nth-child(5),
-  .skill-stack.fanned .skill-card-wrapper:nth-child(5) { transform: translateX(0) translateY(80px); }
-  .skill-stack:not(.fanned):hover .skill-card-wrapper:nth-child(6),
-  .skill-stack.fanned .skill-card-wrapper:nth-child(6) { transform: translateX(75px) translateY(80px); }
+  /* Skills — single column on very small screens */
+  #skills .skill-stack {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  #skills .skill-card {
+    padding: 14px 12px;
+  }
+
+  #skills .skill-card-header h3 {
+    font-size: 0.8rem;
+  }
+
+  #skills .skill-tag {
+    font-size: 0.65rem;
+    padding: 3px 8px;
+  }
+
+  /* Projects */
+  .project-info {
+    padding: 14px;
+  }
+
+  .project-cat {
+    font-size: 0.65rem;
+  }
+
+  .project-info h3 {
+    font-size: 0.95rem;
+  }
+
+  .project-info p,
+  .project-bullets li {
+    font-size: 0.78rem;
+  }
+
+  /* Resume */
+  .resume-sidebar {
+    padding: 20px 12px;
+  }
+
+  .resume-main {
+    padding: 16px 12px;
+  }
+
+  .resume-dp {
+    width: 72px;
+    height: 72px;
+  }
+
+  .resume-name {
+    font-size: 1rem;
+  }
+
+  /* Connect */
+  .form-row input,
+  .form-row textarea {
+    padding: 12px 14px;
+  }
 
   .section-nav {
     padding: 0 6px;
