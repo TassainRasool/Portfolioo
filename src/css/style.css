@@ -54,6 +54,7 @@ body {
   color: var(--text);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 
 /* ═══════════════════════════════════════
@@ -586,6 +587,35 @@ body {
 .skill-stack .skill-tag {
   font-size: 0.65rem;
   padding: 3px 10px;
+}
+
+/* ── Mobile: smaller fan positions ── */
+
+@media (max-width: 639px) {
+  .skill-stack:not(.fanned):hover .skill-card-wrapper:nth-child(1),
+  .skill-stack.fanned .skill-card-wrapper:nth-child(1) {
+    transform: translateX(-130px) translateY(-130px);
+  }
+  .skill-stack:not(.fanned):hover .skill-card-wrapper:nth-child(2),
+  .skill-stack.fanned .skill-card-wrapper:nth-child(2) {
+    transform: translateX(0) translateY(-130px);
+  }
+  .skill-stack:not(.fanned):hover .skill-card-wrapper:nth-child(3),
+  .skill-stack.fanned .skill-card-wrapper:nth-child(3) {
+    transform: translateX(130px) translateY(-130px);
+  }
+  .skill-stack:not(.fanned):hover .skill-card-wrapper:nth-child(4),
+  .skill-stack.fanned .skill-card-wrapper:nth-child(4) {
+    transform: translateX(-130px) translateY(130px);
+  }
+  .skill-stack:not(.fanned):hover .skill-card-wrapper:nth-child(5),
+  .skill-stack.fanned .skill-card-wrapper:nth-child(5) {
+    transform: translateX(0) translateY(130px);
+  }
+  .skill-stack:not(.fanned):hover .skill-card-wrapper:nth-child(6),
+  .skill-stack.fanned .skill-card-wrapper:nth-child(6) {
+    transform: translateX(130px) translateY(130px);
+  }
 }
 
 /* Fan into 3x2 grid centered on stack */
@@ -1479,10 +1509,6 @@ body {
   .project-thumb {
     height: 160px;
   }
-  .skills-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-  }
   .screen {
     padding: 0 48px;
   }
@@ -1502,9 +1528,6 @@ body {
   .about-stats {
     grid-template-columns: 1fr 1fr;
   }
-  .skills-grid {
-    grid-template-columns: 1fr 1fr 1fr;
-  }
   .screen {
     padding: 0 64px;
   }
@@ -1517,5 +1540,77 @@ body {
   }
   .screen {
     padding: 0 80px;
+  }
+}
+
+/* ── Mobile < 640px ── */
+
+@media (max-width: 639px) {
+  .screen-body {
+    padding: 32px 12px 48px;
+  }
+
+  .resume-sidebar {
+    flex: 0 0 100%;
+    padding: 24px 16px;
+  }
+
+  .resume-main {
+    padding: 24px 16px;
+  }
+
+  .resume-card {
+    border-radius: var(--radius-md);
+  }
+
+  .screen .section-label,
+  .screen .section-title {
+    padding: 0 4px;
+  }
+
+  .intro-name-row {
+    gap: 16px;
+  }
+
+  .avatar-ring {
+    width: 120px;
+    height: 120px;
+  }
+
+  .hero {
+    gap: 20px;
+  }
+
+  .projects {
+    grid-template-columns: 1fr;
+  }
+
+  .project-thumb {
+    height: 140px;
+  }
+
+  .project-info {
+    padding: 16px;
+  }
+
+  .about-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .process-steps {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-form {
+    max-width: 100%;
+  }
+
+  .btn.primary {
+    width: 100%;
+  }
+
+  #skills .skill-stack {
+    margin-top: 0;
+    margin-bottom: auto;
   }
 }
